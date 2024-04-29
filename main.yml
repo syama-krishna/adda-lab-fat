@@ -1,4 +1,6 @@
-name: Build Website
+
+
+name: CI/CD PIPELINE
 
 on:
   push:
@@ -20,3 +22,4 @@ jobs:
 
     - name: Build
       run: hugo --minify
+
