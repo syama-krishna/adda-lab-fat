@@ -1,0 +1,25 @@
+name: CI/CD PIPELINE
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install Hugo
+      run: |
+        wget https://github.com/gohugoio/hugo/releases/download/v0.88.1/hugo_0.88.1_Linux-64bit.deb
+        sudo dpkg -i hugo*.deb
+
+    - name: Build Website
+      run: hugo --minify
+
+    - name: Deploy to Hosting Service
+      # Add deployment steps here, e.g., deploying to GitHub Pages, Netlify, or AWS S3.
